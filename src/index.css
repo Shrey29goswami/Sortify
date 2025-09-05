@@ -1,0 +1,104 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    @apply antialiased;
+  }
+  
+  body {
+    @apply transition-colors duration-500;
+  }
+}
+
+@layer components {
+  .slider {
+    @apply appearance-none bg-gradient-to-r from-blue-500 to-purple-500 rounded-lg cursor-pointer;
+  }
+  
+  .slider::-webkit-slider-thumb {
+    @apply appearance-none w-5 h-5 bg-white rounded-full shadow-lg cursor-pointer border-2 border-blue-500 transition-all duration-200;
+  }
+  
+  .slider::-moz-range-thumb {
+    @apply w-5 h-5 bg-white rounded-full shadow-lg cursor-pointer border-2 border-blue-500 transition-all duration-200;
+  }
+  
+  .slider::-webkit-slider-thumb:hover {
+    @apply scale-110 border-blue-600;
+  }
+  
+  .slider::-moz-range-thumb:hover {
+    @apply scale-110 border-blue-600;
+  }
+}
+
+@layer utilities {
+  .glass-morphism {
+    @apply bg-white/10 backdrop-blur-md border border-white/20;
+  }
+  
+  .gradient-text {
+    @apply bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-gray-100 rounded-lg transition-colors duration-300;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-gradient-to-b from-blue-500 to-purple-500 rounded-lg transition-all duration-300;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply from-blue-600 to-purple-600;
+}
+
+/* Dark mode scrollbar */
+.dark ::-webkit-scrollbar-track {
+  @apply bg-gray-800;
+}
+
+.dark ::-webkit-scrollbar-thumb {
+  @apply bg-gradient-to-b from-blue-600 to-purple-600;
+}
+
+.dark ::-webkit-scrollbar-thumb:hover {
+  @apply from-blue-500 to-purple-500;
+}
+/* Animation keyframes */
+@keyframes pulse-glow {
+  0%, 100% {
+    box-shadow: 0 0 5px rgba(59, 130, 246, 0.5);
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(59, 130, 246, 0.8), 0 0 30px rgba(59, 130, 246, 0.6);
+  }
+}
+
+.pulse-glow {
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+/* Smooth scroll behavior */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Responsive design improvements */
+@media (max-width: 768px) {
+  .container {
+    @apply px-4;
+  }
+  
+  .grid-responsive {
+    @apply grid-cols-1 md:grid-cols-2;
+  }
+}
